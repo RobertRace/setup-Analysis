@@ -6,19 +6,20 @@
 </auto-generated>
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="b1b0561a-3117-421c-82a2-0b92d09dbbdc" Name="UltraWall" Language="1033" Codepage="Windows-1252" Version="25.1.86" UpgradeCode="b1b0561a-3117-421c-82a2-0b9240884bdc" Manufacturer="Race Engineering Assoc, LLC">
+  <Product Id="8cfd3c5d-c4e3-4cb5-8846-1a1b7c90cbbb" Name="REA Analysis" Language="1033" Codepage="Windows-1252" Version="26.1.32" UpgradeCode="8cfd3c5d-c4e3-4cb5-8846-1a1bdc7ebbbb" Manufacturer="Race Engineering Assoc, LLC">
     <Package InstallerVersion="200" Compressed="yes" SummaryCodepage="Windows-1252" Languages="1033" />
-    <Media Id="1" Cabinet="UltraWall.cab" EmbedCab="yes" />
+    <Media Id="1" Cabinet="REA20Analysis.cab" EmbedCab="yes" />
 
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder" Name="ProgramFilesFolder">
-        <Directory Id="UltraBlock2c20Inc" Name="UltraBlock, Inc">
-          <Directory Id="INSTALLDIR" Name="UltraWall">
+        <Directory Id="Race20Engineering20Associates" Name="Race Engineering Associates">
+          <Directory Id="INSTALLDIR" Name="REA Analysis">
 
-            <Component Id="Component.UltraWall.exe_1081815125" Guid="b1b0561a-3117-421c-82a2-0b9210ccc29c">
-              <File Id="UltraWall.exe_1081815125" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\UltraWall_Secure\UltraWall.exe">
-                <Shortcut Id="Shortcut.UltraWall.exe_1081815125.UltraWall__" WorkingDirectory="INSTALLDIR" Directory="INSTALLDIR" Name="UltraWall.lnk" />
-                <Shortcut Id="Shortcut.UltraWall.exe_1081815125.UltraWall.1" WorkingDirectory="TempFolder" Directory="DesktopFolder" Name="UltraWall.lnk" Icon="IconFile1_Ultrablock.ico" IconIndex="0" />
+            <Component Id="Component.REA_Analysis.exe_2132807627" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b94b2fc53">
+              <File Id="REA_Analysis.exe_2132807627" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\REA_Analysis.exe">
+                <Shortcut Id="Shortcut.REA_Analysis.exe_2132807627.REA20Analysis__" WorkingDirectory="INSTALLDIR" Directory="INSTALLDIR" Name="REA Analysis.lnk" />
+                <Shortcut Id="Shortcut.REA_Analysis.exe_2132807627.REA20Analysis.1" WorkingDirectory="TempFolder" Directory="ProgramMenuFolder" Name="REA Analysis.lnk" Icon="IconFile1_REAssoc1.ico" IconIndex="0" />
+                <Shortcut Id="Shortcut.REA_Analysis.exe_2132807627.REA20Analysis.2" WorkingDirectory="INSTALLDIR" Directory="DesktopFolder" Name="REA Analysis.lnk" Icon="IconFile1_REAssoc1.ico" IconIndex="0" />
               </File>
 
               <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
@@ -26,36 +27,160 @@
               </RegistryKey>
             </Component>
 
-            <Component Id="Component.REAAnalysisibrary.dll_2433740931" Guid="b1b0561a-3117-421c-82a2-0b92d5c9a12b">
-              <File Id="REAAnalysisibrary.dll_2433740931" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\REAAnalysisibrary.dll" />
+            <Component Id="Component._.dll_681938725" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b01293b2c">
+              <File Id="_.dll_681938725" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\.dll" />
             </Component>
 
-            <Component Id="Component.Codeidea.UltraGraphics.dll_1714022817" Guid="b1b0561a-3117-421c-82a2-0b92ac5e902a">
-              <File Id="Codeidea.UltraGraphics.dll_1714022817" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\Codeidea.UltraGraphics.dll" />
+            <Component Id="Component.AnalysisLibrary.dll_1122456625" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1becb7cec4">
+              <File Id="AnalysisLibrary.dll_1122456625" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\AnalysisLibrary.dll" />
             </Component>
 
-            <Component Id="Component.VCLClasses.dll_3389741875" Guid="b1b0561a-3117-421c-82a2-0b9243876c9a">
-              <File Id="VCLClasses.dll_3389741875" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\VCLClasses.dll" />
+            <Component Id="Component.AutoUpdater.NET.dll_756123007" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b587e6fd3">
+              <File Id="AutoUpdater.NET.dll_756123007" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\AutoUpdater.NET.dll" />
             </Component>
 
-            <Component Id="Component.SX.dll_1648991474" Guid="b1b0561a-3117-421c-82a2-0b9268ff507c">
-              <File Id="SX.dll_1648991474" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\SX.dll" />
+            <Component Id="Component.Chaos.NaCl.dll_2321526335" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b5af5dc29">
+              <File Id="Chaos.NaCl.dll_2321526335" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\Chaos.NaCl.dll" />
             </Component>
 
-            <Component Id="Component.Ionic.Zip.Reduced.dll_236356834" Guid="b1b0561a-3117-421c-82a2-0b92c0d3825e">
-              <File Id="Ionic.Zip.Reduced.dll_236356834" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\Ionic.Zip.Reduced.dll" />
+            <Component Id="Component.Codeidea.UltraGraphics.dll_745567121" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b16f1911b">
+              <File Id="Codeidea.UltraGraphics.dll_745567121" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\Codeidea.UltraGraphics.dll" />
             </Component>
 
-            <Component Id="Component.dna.dll_2220303378" Guid="b1b0561a-3117-421c-82a2-0b9277c4dfdd">
-              <File Id="dna.dll_2220303378" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\dna.dll" />
+            <Component Id="Component.HarfBuzzSharp.dll_3498398346" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be29488e9">
+              <File Id="HarfBuzzSharp.dll_3498398346" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\HarfBuzzSharp.dll" />
             </Component>
 
-            <Component Id="Component.License.dll_2477522556" Guid="b1b0561a-3117-421c-82a2-0b92032b72e8">
-              <File Id="License.dll_2477522556" Source="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\License.dll" />
+            <Component Id="Component.ICSharpCode.SharpZipLib.dll_1330545671" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b339d9162">
+              <File Id="ICSharpCode.SharpZipLib.dll_1330545671" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\ICSharpCode.SharpZipLib.dll" />
             </Component>
 
-            <Component Id="Component.Uninstall20UltraWall" Guid="b1b0561a-3117-421c-82a2-0b9260f0b934">
-              <Shortcut Id="INSTALLDIR.Uninstall20UltraWall" WorkingDirectory="TempFolder" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Name="Uninstall UltraWall.lnk" />
+            <Component Id="Component.libHarfBuzzSharp.dll_529635414" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bf7f6340d">
+              <File Id="libHarfBuzzSharp.dll_529635414" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\libHarfBuzzSharp.dll" />
+            </Component>
+
+            <Component Id="Component.libSkiaSharp.dll_144272242" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b8adec019">
+              <File Id="libSkiaSharp.dll_144272242" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\libSkiaSharp.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Bcl.AsyncInterfaces.dll_3103276339" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bd2f63f0c">
+              <File Id="Microsoft.Bcl.AsyncInterfaces.dll_3103276339" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\Microsoft.Bcl.AsyncInterfaces.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Web.WebView2.Core.dll_16579231" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1ba519b964">
+              <File Id="Microsoft.Web.WebView2.Core.dll_16579231" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\Microsoft.Web.WebView2.Core.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Web.WebView2.WinForms.dll_620026601" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b53fc7c5a">
+              <File Id="Microsoft.Web.WebView2.WinForms.dll_620026601" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\Microsoft.Web.WebView2.WinForms.dll" />
+            </Component>
+
+            <Component Id="Component.Microsoft.Web.WebView2.Wpf.dll_1050248811" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b96b3a838">
+              <File Id="Microsoft.Web.WebView2.Wpf.dll_1050248811" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\Microsoft.Web.WebView2.Wpf.dll" />
+            </Component>
+
+            <Component Id="Component.NetSparkle.dll_264028115" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b0f61d2f1">
+              <File Id="NetSparkle.dll_264028115" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\NetSparkle.dll" />
+            </Component>
+
+            <Component Id="Component.NuGet.Versioning.dll_3260736662" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b8df32836">
+              <File Id="NuGet.Versioning.dll_3260736662" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\NuGet.Versioning.dll" />
+            </Component>
+
+            <Component Id="Component.Office.dll_1722459673" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1ba2e2eec0">
+              <File Id="Office.dll_1722459673" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\Office.dll" />
+            </Component>
+
+            <Component Id="Component.OpenTK.dll_1477412927" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bcc648c43">
+              <File Id="OpenTK.dll_1477412927" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\OpenTK.dll" />
+            </Component>
+
+            <Component Id="Component.OpenTK.GLControl.dll_3808152659" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b1dcd12cd">
+              <File Id="OpenTK.GLControl.dll_3808152659" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\OpenTK.GLControl.dll" />
+            </Component>
+
+            <Component Id="Component.ScottPlot.dll_1503021872" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb17f00a1">
+              <File Id="ScottPlot.dll_1503021872" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\ScottPlot.dll" />
+            </Component>
+
+            <Component Id="Component.ScottPlot.WinForms.dll_2599959571" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b2b9a429c">
+              <File Id="ScottPlot.WinForms.dll_2599959571" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\ScottPlot.WinForms.dll" />
+            </Component>
+
+            <Component Id="Component.SkiaSharp.dll_2372414188" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b3412d176">
+              <File Id="SkiaSharp.dll_2372414188" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\SkiaSharp.dll" />
+            </Component>
+
+            <Component Id="Component.SkiaSharp.HarfBuzz.dll_2460774080" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b3112b7e9">
+              <File Id="SkiaSharp.HarfBuzz.dll_2460774080" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\SkiaSharp.HarfBuzz.dll" />
+            </Component>
+
+            <Component Id="Component.SkiaSharp.Views.Desktop.Common.dll_1355651118" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b301d01bd">
+              <File Id="SkiaSharp.Views.Desktop.Common.dll_1355651118" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\SkiaSharp.Views.Desktop.Common.dll" />
+            </Component>
+
+            <Component Id="Component.SkiaSharp.Views.WindowsForms.dll_1373878178" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b30b696bb">
+              <File Id="SkiaSharp.Views.WindowsForms.dll_1373878178" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\SkiaSharp.Views.WindowsForms.dll" />
+            </Component>
+
+            <Component Id="Component.SX.dll_1891100677" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b693435ae">
+              <File Id="SX.dll_1891100677" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\SX.dll" />
+            </Component>
+
+            <Component Id="Component.System.Buffers.dll_1428055350" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b294d181b">
+              <File Id="System.Buffers.dll_1428055350" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Buffers.dll" />
+            </Component>
+
+            <Component Id="Component.System.IO.Pipelines.dll_3623796721" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb7a0e24a">
+              <File Id="System.IO.Pipelines.dll_3623796721" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.IO.Pipelines.dll" />
+            </Component>
+
+            <Component Id="Component.System.Memory.dll_3461651875" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb46d59d6">
+              <File Id="System.Memory.dll_3461651875" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Memory.dll" />
+            </Component>
+
+            <Component Id="Component.System.Numerics.Vectors.dll_1989430895" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bd1468a22">
+              <File Id="System.Numerics.Vectors.dll_1989430895" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Numerics.Vectors.dll" />
+            </Component>
+
+            <Component Id="Component.System.Resources.Extensions.dll_436270390" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1ba573f390">
+              <File Id="System.Resources.Extensions.dll_436270390" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Resources.Extensions.dll" />
+            </Component>
+
+            <Component Id="Component.System.Runtime.CompilerServices.Unsafe.dll_2575277909" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bafb5b78b">
+              <File Id="System.Runtime.CompilerServices.Unsafe.dll_2575277909" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Runtime.CompilerServices.Unsafe.dll" />
+            </Component>
+
+            <Component Id="Component.System.Text.Encodings.Web.dll_99190582" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b8ce24212">
+              <File Id="System.Text.Encodings.Web.dll_99190582" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Text.Encodings.Web.dll" />
+            </Component>
+
+            <Component Id="Component.System.Text.Json.dll_3227596069" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bcb492945">
+              <File Id="System.Text.Json.dll_3227596069" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Text.Json.dll" />
+            </Component>
+
+            <Component Id="Component.System.Threading.Tasks.Extensions.dll_3863971728" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b3aa7fb81">
+              <File Id="System.Threading.Tasks.Extensions.dll_3863971728" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\System.Threading.Tasks.Extensions.dll" />
+            </Component>
+
+            <Component Id="Component.SystemsLibrary.dll_2562048602" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1ba93984e6">
+              <File Id="SystemsLibrary.dll_2562048602" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\SystemsLibrary.dll" />
+            </Component>
+
+            <Component Id="Component.VCLClasses.dll_3965194002" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bdb28999f">
+              <File Id="VCLClasses.dll_3965194002" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\VCLClasses.dll" />
+            </Component>
+
+            <Component Id="Component.WebView2Loader.dll_1794965568" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bc722aa31">
+              <File Id="WebView2Loader.dll_1794965568" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\WebView2Loader.dll" />
+            </Component>
+
+            <Component Id="Component.REA_Analysis.exe.config_513021640" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b6d99d088">
+              <File Id="REA_Analysis.exe.config_513021640" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\REA_Analysis.exe.config" />
+            </Component>
+
+            <Component Id="Component.Uninstall20REA20Analysis" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b583f1075">
+              <Shortcut Id="INSTALLDIR.Uninstall20REA20Analysis" WorkingDirectory="TempFolder" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Name="Uninstall REA Analysis.lnk" />
 
               <CreateFolder />
               <RemoveFolder Id="INSTALLDIR" On="uninstall" />
@@ -65,110 +190,316 @@
               </RegistryKey>
             </Component>
 
-            <Directory Id="Envirolok20Analysis_Secure" Name="Envirolok Analysis_Secure">
+            <Directory Id="ar" Name="ar">
 
-              <Component Id="Component.Envirolok20Analysis_Secure.EmptyDirectory" Guid="b1b0561a-3117-421c-82a2-0b9279b0a377" KeyPath="yes">
-                <CreateFolder />
-                <RemoveFolder Id="Envirolok20Analysis_Secure" On="uninstall" />
+              <Component Id="Component.AutoUpdater.NET.resources.dll_3129451099" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b33018820">
+                <File Id="AutoUpdater.NET.resources.dll_3129451099" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\ar\AutoUpdater.NET.resources.dll" />
               </Component>
 
             </Directory>
 
-            <Directory Id="Images" Name="Images">
+            <Directory Id="arm" Name="arm">
 
-              <Component Id="Component.Images.EmptyDirectory" Guid="b1b0561a-3117-421c-82a2-0b92d506d614" KeyPath="yes">
+              <Component Id="Component.arm.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b281142f8" KeyPath="yes">
                 <CreateFolder />
-                <RemoveFolder Id="Images" On="uninstall" />
+                <RemoveFolder Id="arm" On="uninstall" />
               </Component>
 
             </Directory>
 
-            <Directory Id="REA20Analysis_Secure" Name="REA Analysis_Secure">
+            <Directory Id="arm64_" Name="arm64">
 
-              <Component Id="Component.REA20Analysis_Secure.EmptyDirectory" Guid="b1b0561a-3117-421c-82a2-0b929d486d2d" KeyPath="yes">
-                <CreateFolder />
-                <RemoveFolder Id="REA20Analysis_Secure" On="uninstall" />
+              <Component Id="Component.libHarfBuzzSharp.dll_1852642465" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bf30a0b89">
+                <File Id="libHarfBuzzSharp.dll_1852642465" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\arm64\libHarfBuzzSharp.dll" />
+              </Component>
+
+              <Component Id="Component.libSkiaSharp.dll_1232235986" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b6e1721e0">
+                <File Id="libSkiaSharp.dll_1232235986" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\arm64\libSkiaSharp.dll" />
               </Component>
 
             </Directory>
 
-            <Directory Id="UltraWall_Secure" Name="UltraWall_Secure">
+            <Directory Id="cs" Name="cs">
 
-              <Component Id="Component.UltraWall_Secure.EmptyDirectory" Guid="b1b0561a-3117-421c-82a2-0b92efdd32ab" KeyPath="yes">
+              <Component Id="Component.AutoUpdater.NET.resources.dll_2668332823" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b1559bb82">
+                <File Id="AutoUpdater.NET.resources.dll_2668332823" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\cs\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="da" Name="da">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_3652148545" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bbc788440">
+                <File Id="AutoUpdater.NET.resources.dll_3652148545" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\da\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="de" Name="de">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_3238819309" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b87a5ddc0">
+                <File Id="AutoUpdater.NET.resources.dll_3238819309" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\de\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="DLL_Files" Name="DLL_Files">
+
+              <Component Id="Component.dna.dll_2589384331" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b5e7d7b23">
+                <File Id="dna.dll_2589384331" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\DLL_Files\dna.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="es" Name="es">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_2224176334" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b01255cb1">
+                <File Id="AutoUpdater.NET.resources.dll_2224176334" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\es\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="fr" Name="fr">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_4285779159" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be4299cda">
+                <File Id="AutoUpdater.NET.resources.dll_4285779159" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\fr\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="it" Name="it">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_772726605" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb87b472d">
+                <File Id="AutoUpdater.NET.resources.dll_772726605" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\it\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="ja2dJP" Name="ja-JP">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_1069409852" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b3926c3f2">
+                <File Id="AutoUpdater.NET.resources.dll_1069409852" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\ja-JP\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="ko" Name="ko">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_994032793" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bf3c223cf">
+                <File Id="AutoUpdater.NET.resources.dll_994032793" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\ko\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="libs" Name="libs">
+              <Directory Id="runtime" Name="runtime">
+
+                <Component Id="Component.dna.dll_1454045532" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be5a03821">
+                  <File Id="dna.dll_1454045532" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\libs\runtime\dna.dll" />
+                </Component>
+
+              </Directory>
+            </Directory>
+
+            <Directory Id="loongarch64_" Name="loongarch64">
+
+              <Component Id="Component.loongarch64_.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb7be7191" KeyPath="yes">
                 <CreateFolder />
-                <RemoveFolder Id="UltraWall_Secure" On="uninstall" />
+                <RemoveFolder Id="loongarch64_" On="uninstall" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="lv" Name="lv">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_2169553922" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b5e9e30df">
+                <File Id="AutoUpdater.NET.resources.dll_2169553922" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\lv\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="musl2darm" Name="musl-arm">
+
+              <Component Id="Component.musl2darm.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb14b7589" KeyPath="yes">
+                <CreateFolder />
+                <RemoveFolder Id="musl2darm" On="uninstall" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="musl2darm64_" Name="musl-arm64">
+
+              <Component Id="Component.musl2darm64_.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1ba62b5fca" KeyPath="yes">
+                <CreateFolder />
+                <RemoveFolder Id="musl2darm64_" On="uninstall" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="musl2dloongarch64_" Name="musl-loongarch64">
+
+              <Component Id="Component.musl2dloongarch64_.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bf822bffb" KeyPath="yes">
+                <CreateFolder />
+                <RemoveFolder Id="musl2dloongarch64_" On="uninstall" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="musl2driscv64_" Name="musl-riscv64">
+
+              <Component Id="Component.musl2driscv64_.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bd8c96a94" KeyPath="yes">
+                <CreateFolder />
+                <RemoveFolder Id="musl2driscv64_" On="uninstall" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="musl2dx64_" Name="musl-x64">
+
+              <Component Id="Component.musl2dx64_.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b03b83376" KeyPath="yes">
+                <CreateFolder />
+                <RemoveFolder Id="musl2dx64_" On="uninstall" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="nl" Name="nl">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_490388619" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b37db48b4">
+                <File Id="AutoUpdater.NET.resources.dll_490388619" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\nl\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="pl" Name="pl">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_673280046" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b5a28e930">
+                <File Id="AutoUpdater.NET.resources.dll_673280046" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\pl\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="pt" Name="pt">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_2297995382" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bda10624a">
+                <File Id="AutoUpdater.NET.resources.dll_2297995382" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\pt\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="pt2dBR" Name="pt-BR">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_2353140404" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b45c7e38d">
+                <File Id="AutoUpdater.NET.resources.dll_2353140404" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\pt-BR\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="riscv64_" Name="riscv64">
+
+              <Component Id="Component.riscv64_.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be3f5cfd3" KeyPath="yes">
+                <CreateFolder />
+                <RemoveFolder Id="riscv64_" On="uninstall" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="ru" Name="ru">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_1467424861" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b0d2f7ce8">
+                <File Id="AutoUpdater.NET.resources.dll_1467424861" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\ru\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="sk" Name="sk">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_3323654356" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b42f041e3">
+                <File Id="AutoUpdater.NET.resources.dll_3323654356" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\sk\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="sv" Name="sv">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_2541151529" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b35c4296f">
+                <File Id="AutoUpdater.NET.resources.dll_2541151529" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\sv\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="th" Name="th">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_2856794716" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b4aa5107c">
+                <File Id="AutoUpdater.NET.resources.dll_2856794716" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\th\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="tr" Name="tr">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_715513995" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be3f9fea8">
+                <File Id="AutoUpdater.NET.resources.dll_715513995" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\tr\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="x64_" Name="x64">
+
+              <Component Id="Component.libHarfBuzzSharp.dll_2512740860" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b05f8e18c">
+                <File Id="libHarfBuzzSharp.dll_2512740860" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\x64\libHarfBuzzSharp.dll" />
+              </Component>
+
+              <Component Id="Component.libSkiaSharp.dll_3158051921" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb3840aa6">
+                <File Id="libSkiaSharp.dll_3158051921" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\x64\libSkiaSharp.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="x86_" Name="x86">
+
+              <Component Id="Component.libHarfBuzzSharp.dll_1939635549" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b5b22ff46">
+                <File Id="libHarfBuzzSharp.dll_1939635549" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\x86\libHarfBuzzSharp.dll" />
+              </Component>
+
+              <Component Id="Component.libSkiaSharp.dll_1104335373" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b4b58fa28">
+                <File Id="libSkiaSharp.dll_1104335373" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\x86\libSkiaSharp.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="zh" Name="zh">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_753413677" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b2eb529c5">
+                <File Id="AutoUpdater.NET.resources.dll_753413677" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\zh\AutoUpdater.NET.resources.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="zh2dTW" Name="zh-TW">
+
+              <Component Id="Component.AutoUpdater.NET.resources.dll_3901653914" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be566edb2">
+                <File Id="AutoUpdater.NET.resources.dll_3901653914" Source="..\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\zh-TW\AutoUpdater.NET.resources.dll" />
               </Component>
 
             </Directory>
           </Directory>
 
-          <Component Id="UltraBlock2c20Inc" Guid="b1b0561a-3117-421c-82a2-0b9294a11273" KeyPath="yes">
+          <Component Id="Race20Engineering20Associates" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b2601089a" KeyPath="yes">
             <CreateFolder />
-            <RemoveFolder Id="UltraBlock2c20Inc" On="uninstall" />
+            <RemoveFolder Id="Race20Engineering20Associates" On="uninstall" />
           </Component>
 
         </Directory>
       </Directory>
 
       <Directory Id="PersonalFolder" Name="PersonalFolder">
-        <Directory Id="UltraWall20Files" Name="UltraWall Files">
-
-          <Component Id="Component.Acknowledgement20and20Acceptance20of20Terms20of20Usage20and20Disclaimer.rtf_4229956005" Guid="b1b0561a-3117-421c-82a2-0b926ee7d028">
-            <File Id="Acknowledgement20and20Acceptance20of20Terms20of20Usage20and20Disclaimer.rtf_4229956005" Source="D:\OneDrive - rea-llc.com\ULTRABLOCK, INC\Acknowledgement and Acceptance of Terms of Usage and Disclaimer.rtf" />
-            <RemoveFolder Id="UltraWall20Files" On="uninstall" />
-
-            <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
-              <RegistryValue Value="0" Type="string" KeyPath="yes" />
-            </RegistryKey>
-          </Component>
-
+        <Directory Id="REA20Wall" Name="REA Wall">
           <Directory Id="Data20Files" Name="Data Files">
-            <Directory Id="UltraBlock" Name="UltraBlock">
-
-              <Component Id="Component.UltraBlock.bud_2054351389" Guid="b1b0561a-3117-421c-82a2-0b9235770b3c">
-                <File Id="UltraBlock.bud_2054351389" Source="D:\OneDrive - rea-llc.com\REA Data Files\UltraBlock\UltraBlock.bud" />
-                <RemoveFolder Id="UltraBlock" On="uninstall" />
-
-                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
-                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
-                </RegistryKey>
-              </Component>
-
-            </Directory>
-
-            <Directory Id="StoneTerra" Name="StoneTerra">
-
-              <Component Id="Component.StoneTerra.bud_4259944762" Guid="b1b0561a-3117-421c-82a2-0b927bad661d">
-                <File Id="StoneTerra.bud_4259944762" Source="D:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra.bud" />
-                <RemoveFolder Id="StoneTerra" On="uninstall" />
-
-                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
-                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
-                </RegistryKey>
-              </Component>
-
-              <Component Id="Component.StoneTerra_EX.bud_668760058" Guid="b1b0561a-3117-421c-82a2-0b92d443cad7">
-                <File Id="StoneTerra_EX.bud_668760058" Source="D:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra_EX.bud" />
-
-                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
-                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
-                </RegistryKey>
-              </Component>
-
-              <Component Id="Component.StoneTerra_UC.bud_2764934058" Guid="b1b0561a-3117-421c-82a2-0b921f4d34d2">
-                <File Id="StoneTerra_UC.bud_2764934058" Source="D:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra_UC.bud" />
-
-                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
-                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
-                </RegistryKey>
-              </Component>
-
-            </Directory>
-
             <Directory Id="Reinforcing" Name="Reinforcing">
 
-              <Component Id="Component.Mirafi.bcd_1080658426" Guid="b1b0561a-3117-421c-82a2-0b926801e541">
-                <File Id="Mirafi.bcd_1080658426" Source="D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Mirafi.bcd" />
+              <Component Id="Component.CMT.bcd_3649578820" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b14d3661e">
+                <File Id="CMT.bcd_3649578820" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\CMT.bcd" />
                 <RemoveFolder Id="Reinforcing" On="uninstall" />
 
                 <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
@@ -176,16 +507,120 @@
                 </RegistryKey>
               </Component>
 
-              <Component Id="Component.Stratagrid.bcd_1623108284" Guid="b1b0561a-3117-421c-82a2-0b92182364e4">
-                <File Id="Stratagrid.bcd_1623108284" Source="D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Stratagrid.bcd" />
+              <Component Id="Component.ERS.bcd_3983650543" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b6b383e5f">
+                <File Id="ERS.bcd_3983650543" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\ERS.bcd" />
 
                 <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
                   <RegistryValue Value="0" Type="string" KeyPath="yes" />
                 </RegistryKey>
               </Component>
 
-              <Component Id="Component.Synteen.bcd_1959993449" Guid="b1b0561a-3117-421c-82a2-0b927ffe9f35">
-                <File Id="Synteen.bcd_1959993449" Source="D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Synteen.bcd" />
+              <Component Id="Component.EWG.bcd_1509882878" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be215963b">
+                <File Id="EWG.bcd_1509882878" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\EWG.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Fortrac.bcd_3721921886" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bd52381a6">
+                <File Id="Fortrac.bcd_3721921886" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Fortrac.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.GeoStar.bcd_1692999774" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1ba5e96e0c">
+                <File Id="GeoStar.bcd_1692999774" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\GeoStar.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.GRIDMAXX20Solutions.bcd_4188939865" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bbb6e5085">
+                <File Id="GRIDMAXX20Solutions.bcd_4188939865" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\GRIDMAXX Solutions.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.HTG.bcd_1362101241" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bae44bfd3">
+                <File Id="HTG.bcd_1362101241" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\HTG.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.KPNE.bcd_337530587" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b2d9cfb24">
+                <File Id="KPNE.bcd_337530587" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\KPNE.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Mirafi.bcd_1326158436" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b0e8259b9">
+                <File Id="Mirafi.bcd_1326158436" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Mirafi.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.SRW.bcd_1800646383" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b8d116591">
+                <File Id="SRW.bcd_1800646383" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\SRW.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Stratagrid.bcd_3127661333" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bc0a3bc43">
+                <File Id="Stratagrid.bcd_3127661333" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Stratagrid.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.StratagridSGU.bcd_3743984310" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bcdfd1063">
+                <File Id="StratagridSGU.bcd_3743984310" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\StratagridSGU.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Synteen.bcd_2971221606" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b86981f76">
+                <File Id="Synteen.bcd_2971221606" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Synteen.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.TechGrid.bcd_3722855085" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b24435510">
+                <File Id="TechGrid.bcd_3722855085" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\TechGrid.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Tensar.bcd_3241609363" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bf21be618">
+                <File Id="Tensar.bcd_3241609363" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Tensar.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Versa2dGrid.bcd_1736201397" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bdfbab768">
+                <File Id="Versa2dGrid.bcd_1736201397" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Versa-Grid.bcd" />
 
                 <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
                   <RegistryValue Value="0" Type="string" KeyPath="yes" />
@@ -194,7 +629,222 @@
 
             </Directory>
 
-            <Component Id="Data20Files" Guid="b1b0561a-3117-421c-82a2-0b9266ee4b7b">
+            <Directory Id="CornerStone204.0_" Name="CornerStone 4.0">
+
+              <Component Id="Component.CornerStone_4.0.bsd_1211399485" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bb2dba00f">
+                <File Id="CornerStone_4.0.bsd_1211399485" Source="..\..\OneDrive - rea-llc.com\REA Data Files\CornerStone 4.0\CornerStone_4.0.bsd" />
+                <RemoveFolder Id="CornerStone204.0_" On="uninstall" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Fortus_4.0.bsd_2111973084" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bdee0d433">
+                <File Id="Fortus_4.0.bsd_2111973084" Source="..\..\OneDrive - rea-llc.com\REA Data Files\CornerStone 4.0\Fortus_4.0.bsd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+            </Directory>
+
+            <Directory Id="MagnumStone204.0_" Name="MagnumStone 4.0">
+
+              <Component Id="Component.MagnumStone20All_4.0.bcd_311296333" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b430cbd5f">
+                <File Id="MagnumStone20All_4.0.bcd_311296333" Source="..\..\OneDrive - rea-llc.com\REA Data Files\MagnumStone 4.0\MagnumStone All_4.0.bcd" />
+                <RemoveFolder Id="MagnumStone204.0_" On="uninstall" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.MagnumStone20All_4.0.bsd_1023757053" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b676a8cbf">
+                <File Id="MagnumStone20All_4.0.bsd_1023757053" Source="..\..\OneDrive - rea-llc.com\REA Data Files\MagnumStone 4.0\MagnumStone All_4.0.bsd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+            </Directory>
+
+            <Directory Id="KeyStone204.0_" Name="KeyStone 4.0">
+
+              <Component Id="Component.KeyStone204.0.bcd_1496985412" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bea717b65">
+                <File Id="KeyStone204.0.bcd_1496985412" Source="..\..\OneDrive - rea-llc.com\REA Data Files\KeyStone 4.0\KeyStone 4.0.bcd" />
+                <RemoveFolder Id="KeyStone204.0_" On="uninstall" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.KeyStone204.0.bcdXX_316391006" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b901ecc01">
+                <File Id="KeyStone204.0.bcdXX_316391006" Source="..\..\OneDrive - rea-llc.com\REA Data Files\KeyStone 4.0\KeyStone 4.0.bcdXX" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Regal20Stone20Pro.bcd_3971030248" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b188f703c">
+                <File Id="Regal20Stone20Pro.bcd_3971030248" Source="..\..\OneDrive - rea-llc.com\REA Data Files\KeyStone 4.0\Regal Stone Pro.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+            </Directory>
+
+            <Directory Id="Anchor204.0_" Name="Anchor 4.0">
+
+              <Component Id="Component.Anchor20Diamond204.0.bcd_1847677069" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b702edbb0">
+                <File Id="Anchor20Diamond204.0.bcd_1847677069" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\Anchor Diamond 4.0.bcd" />
+                <RemoveFolder Id="Anchor204.0_" On="uninstall" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Anchor20Diamond20Pro20PS_4.0.bcd_2464743509" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b584ed661">
+                <File Id="Anchor20Diamond20Pro20PS_4.0.bcd_2464743509" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\Anchor Diamond Pro PS_4.0.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Anchor20Diamond20Pro_4.0.bcd_1963326646" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b96cb5a5c">
+                <File Id="Anchor20Diamond20Pro_4.0.bcd_1963326646" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\Anchor Diamond Pro_4.0.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Anchor20GeoHold20Pro204.0.bcd_3550024555" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b85da7c32">
+                <File Id="Anchor20GeoHold20Pro204.0.bcd_3550024555" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\Anchor GeoHold Pro 4.0.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Anchor20Stirling2040.bcd_1352372439" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b7b3231c0">
+                <File Id="Anchor20Stirling2040.bcd_1352372439" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\Anchor Stirling 40.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.REAWall.ini_2316114435" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bac75dbe4">
+                <File Id="REAWall.ini_2316114435" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\REAWall.ini" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+            </Directory>
+
+            <Directory Id="VertiBlock204.0_" Name="VertiBlock 4.0">
+
+              <Component Id="Component.VertiBlock204.0.bvd_2556050556" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b43cb6b08">
+                <File Id="VertiBlock204.0.bvd_2556050556" Source="..\..\OneDrive - rea-llc.com\REA Data Files\VertiBlock 4.0\VertiBlock 4.0.bvd" />
+                <RemoveFolder Id="VertiBlock204.0_" On="uninstall" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+            </Directory>
+
+            <Directory Id="Baskets" Name="Baskets">
+
+              <Component Id="Component.Baskets.bcd_2387950421" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bbd16a557">
+                <File Id="Baskets.bcd_2387950421" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Baskets\Baskets.bcd" />
+                <RemoveFolder Id="Baskets" On="uninstall" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Baskets12_40.bcd_3337963036" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b6f55384e">
+                <File Id="Baskets12_40.bcd_3337963036" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Baskets\Baskets12_40.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Baskets18_40.bcd_3740223004" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b219b1cf1">
+                <File Id="Baskets18_40.bcd_3740223004" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Baskets\Baskets18_40.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Component Id="Component.Baskets24_40.bcd_3472055079" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b938b0279">
+                <File Id="Baskets24_40.bcd_3472055079" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Baskets\Baskets24_40.bcd" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+              <Directory Id="Archive" Name="Archive">
+
+                <Component Id="Component.Baskets.bcd_1337778614" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1be8313af6">
+                  <File Id="Baskets.bcd_1337778614" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Baskets\Archive\Baskets.bcd" />
+                  <RemoveFolder Id="Archive" On="uninstall" />
+
+                  <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                    <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                  </RegistryKey>
+                </Component>
+
+                <Component Id="Component.BasketsXX.bcd_4085008256" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b09d3abe8">
+                  <File Id="BasketsXX.bcd_4085008256" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Baskets\Archive\BasketsXX.bcd" />
+
+                  <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                    <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                  </RegistryKey>
+                </Component>
+
+                <Component Id="Component.Baskets_4.0.bcd_3637795341" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b439f60cf">
+                  <File Id="Baskets_4.0.bcd_3637795341" Source="..\..\OneDrive - rea-llc.com\REA Data Files\Baskets\Archive\Baskets_4.0.bcd" />
+
+                  <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                    <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                  </RegistryKey>
+                </Component>
+
+              </Directory>
+            </Directory>
+
+            <Directory Id="ReCon204.0_" Name="ReCon 4.0">
+
+              <Component Id="Component.ReCon204.0.brd_1819846375" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b2270e0e7">
+                <File Id="ReCon204.0.brd_1819846375" Source="..\..\OneDrive - rea-llc.com\REA Data Files\ReCon 4.0\ReCon 4.0.brd" />
+                <RemoveFolder Id="ReCon204.0_" On="uninstall" />
+
+                <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+                  <RegistryValue Value="0" Type="string" KeyPath="yes" />
+                </RegistryKey>
+              </Component>
+
+            </Directory>
+
+            <Component Id="Data20Files" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b02e4bb5a">
               <RemoveFolder Id="Data20Files" On="uninstall" />
 
               <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
@@ -203,12 +853,21 @@
             </Component>
 
           </Directory>
+
+          <Component Id="REA20Wall" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1bbfef84d1">
+            <RemoveFolder Id="REA20Wall" On="uninstall" />
+
+            <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+              <RegistryValue Value="0" Type="string" KeyPath="yes" />
+            </RegistryKey>
+          </Component>
+
         </Directory>
       </Directory>
 
-      <Directory Id="DesktopFolder" Name="DesktopFolder">
+      <Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
 
-        <Component Id="Component.DesktopFolder.EmptyDirectory" Guid="b1b0561a-3117-421c-82a2-0b927fa2ece2">
+        <Component Id="Component.ProgramMenuFolder.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b2e403ce0">
           <CreateFolder />
 
           <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
@@ -218,7 +877,19 @@
 
       </Directory>
 
-      <Component Id="TARGETDIR" Guid="b1b0561a-3117-421c-82a2-0b92b358bb4f" KeyPath="yes">
+      <Directory Id="DesktopFolder" Name="DesktopFolder">
+
+        <Component Id="Component.DesktopFolder.EmptyDirectory" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b1b985cc1">
+          <CreateFolder />
+
+          <RegistryKey Root="HKCU" Key="Software\WixSharp\Used">
+            <RegistryValue Value="0" Type="string" KeyPath="yes" />
+          </RegistryKey>
+        </Component>
+
+      </Directory>
+
+      <Component Id="TARGETDIR" Guid="8cfd3c5d-c4e3-4cb5-8846-1a1b4f4e2b2e" KeyPath="yes">
         <CreateFolder />
         <RemoveFolder Id="TARGETDIR" On="uninstall" />
       </Component>
@@ -227,9 +898,9 @@
 
     <UI />
 
-    <WixVariable Id="WixUILicenseRtf" Value="D:\OneDrive - rea-llc.com\ULTRABLOCK, INC\Acknowledgement and Acceptance of Terms of Usage and Disclaimer.rtf" />
+    <WixVariable Id="WixUILicenseRtf" Value="E:\OneDrive - rea-llc.com\Shared with Everyone\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf" />
 
-    <Icon Id="IconFile1_Ultrablock.ico" SourceFile="..\..\REA-Analysis-and-Layout (2025)\REA_Analysis\Images\Ultrablock.ico" />
+    <Icon Id="IconFile1_REAssoc1.ico" SourceFile="..\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc1.ico" />
 
     <CustomAction Id="Set_ARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" Return="check" Execute="immediate" />
     <CustomAction Id="Set_ARPNOMODIFY" Property="ARPNOMODIFY" Value="False" Return="check" Execute="immediate" />
@@ -244,30 +915,126 @@
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
     <Feature Id="Complete" Title="Complete" Absent="allow" Level="1">
-      <ComponentRef Id="Component.UltraWall.exe_1081815125" />
-      <ComponentRef Id="Component.REAAnalysisibrary.dll_2433740931" />
-      <ComponentRef Id="Component.Codeidea.UltraGraphics.dll_1714022817" />
-      <ComponentRef Id="Component.VCLClasses.dll_3389741875" />
-      <ComponentRef Id="Component.SX.dll_1648991474" />
-      <ComponentRef Id="Component.Ionic.Zip.Reduced.dll_236356834" />
-      <ComponentRef Id="Component.dna.dll_2220303378" />
-      <ComponentRef Id="Component.License.dll_2477522556" />
-      <ComponentRef Id="Component.Uninstall20UltraWall" />
-      <ComponentRef Id="Component.Envirolok20Analysis_Secure.EmptyDirectory" />
-      <ComponentRef Id="Component.Images.EmptyDirectory" />
-      <ComponentRef Id="Component.REA20Analysis_Secure.EmptyDirectory" />
-      <ComponentRef Id="Component.UltraWall_Secure.EmptyDirectory" />
-      <ComponentRef Id="Component.Acknowledgement20and20Acceptance20of20Terms20of20Usage20and20Disclaimer.rtf_4229956005" />
-      <ComponentRef Id="Component.UltraBlock.bud_2054351389" />
-      <ComponentRef Id="Component.StoneTerra.bud_4259944762" />
-      <ComponentRef Id="Component.StoneTerra_EX.bud_668760058" />
-      <ComponentRef Id="Component.StoneTerra_UC.bud_2764934058" />
-      <ComponentRef Id="Component.Mirafi.bcd_1080658426" />
-      <ComponentRef Id="Component.Stratagrid.bcd_1623108284" />
-      <ComponentRef Id="Component.Synteen.bcd_1959993449" />
+      <ComponentRef Id="Component.REA_Analysis.exe_2132807627" />
+      <ComponentRef Id="Component._.dll_681938725" />
+      <ComponentRef Id="Component.AnalysisLibrary.dll_1122456625" />
+      <ComponentRef Id="Component.AutoUpdater.NET.dll_756123007" />
+      <ComponentRef Id="Component.Chaos.NaCl.dll_2321526335" />
+      <ComponentRef Id="Component.Codeidea.UltraGraphics.dll_745567121" />
+      <ComponentRef Id="Component.HarfBuzzSharp.dll_3498398346" />
+      <ComponentRef Id="Component.ICSharpCode.SharpZipLib.dll_1330545671" />
+      <ComponentRef Id="Component.libHarfBuzzSharp.dll_529635414" />
+      <ComponentRef Id="Component.libSkiaSharp.dll_144272242" />
+      <ComponentRef Id="Component.Microsoft.Bcl.AsyncInterfaces.dll_3103276339" />
+      <ComponentRef Id="Component.Microsoft.Web.WebView2.Core.dll_16579231" />
+      <ComponentRef Id="Component.Microsoft.Web.WebView2.WinForms.dll_620026601" />
+      <ComponentRef Id="Component.Microsoft.Web.WebView2.Wpf.dll_1050248811" />
+      <ComponentRef Id="Component.NetSparkle.dll_264028115" />
+      <ComponentRef Id="Component.NuGet.Versioning.dll_3260736662" />
+      <ComponentRef Id="Component.Office.dll_1722459673" />
+      <ComponentRef Id="Component.OpenTK.dll_1477412927" />
+      <ComponentRef Id="Component.OpenTK.GLControl.dll_3808152659" />
+      <ComponentRef Id="Component.ScottPlot.dll_1503021872" />
+      <ComponentRef Id="Component.ScottPlot.WinForms.dll_2599959571" />
+      <ComponentRef Id="Component.SkiaSharp.dll_2372414188" />
+      <ComponentRef Id="Component.SkiaSharp.HarfBuzz.dll_2460774080" />
+      <ComponentRef Id="Component.SkiaSharp.Views.Desktop.Common.dll_1355651118" />
+      <ComponentRef Id="Component.SkiaSharp.Views.WindowsForms.dll_1373878178" />
+      <ComponentRef Id="Component.SX.dll_1891100677" />
+      <ComponentRef Id="Component.System.Buffers.dll_1428055350" />
+      <ComponentRef Id="Component.System.IO.Pipelines.dll_3623796721" />
+      <ComponentRef Id="Component.System.Memory.dll_3461651875" />
+      <ComponentRef Id="Component.System.Numerics.Vectors.dll_1989430895" />
+      <ComponentRef Id="Component.System.Resources.Extensions.dll_436270390" />
+      <ComponentRef Id="Component.System.Runtime.CompilerServices.Unsafe.dll_2575277909" />
+      <ComponentRef Id="Component.System.Text.Encodings.Web.dll_99190582" />
+      <ComponentRef Id="Component.System.Text.Json.dll_3227596069" />
+      <ComponentRef Id="Component.System.Threading.Tasks.Extensions.dll_3863971728" />
+      <ComponentRef Id="Component.SystemsLibrary.dll_2562048602" />
+      <ComponentRef Id="Component.VCLClasses.dll_3965194002" />
+      <ComponentRef Id="Component.WebView2Loader.dll_1794965568" />
+      <ComponentRef Id="Component.REA_Analysis.exe.config_513021640" />
+      <ComponentRef Id="Component.Uninstall20REA20Analysis" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_3129451099" />
+      <ComponentRef Id="Component.arm.EmptyDirectory" />
+      <ComponentRef Id="Component.libHarfBuzzSharp.dll_1852642465" />
+      <ComponentRef Id="Component.libSkiaSharp.dll_1232235986" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_2668332823" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_3652148545" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_3238819309" />
+      <ComponentRef Id="Component.dna.dll_2589384331" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_2224176334" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_4285779159" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_772726605" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_1069409852" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_994032793" />
+      <ComponentRef Id="Component.dna.dll_1454045532" />
+      <ComponentRef Id="Component.loongarch64_.EmptyDirectory" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_2169553922" />
+      <ComponentRef Id="Component.musl2darm.EmptyDirectory" />
+      <ComponentRef Id="Component.musl2darm64_.EmptyDirectory" />
+      <ComponentRef Id="Component.musl2dloongarch64_.EmptyDirectory" />
+      <ComponentRef Id="Component.musl2driscv64_.EmptyDirectory" />
+      <ComponentRef Id="Component.musl2dx64_.EmptyDirectory" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_490388619" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_673280046" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_2297995382" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_2353140404" />
+      <ComponentRef Id="Component.riscv64_.EmptyDirectory" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_1467424861" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_3323654356" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_2541151529" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_2856794716" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_715513995" />
+      <ComponentRef Id="Component.libHarfBuzzSharp.dll_2512740860" />
+      <ComponentRef Id="Component.libSkiaSharp.dll_3158051921" />
+      <ComponentRef Id="Component.libHarfBuzzSharp.dll_1939635549" />
+      <ComponentRef Id="Component.libSkiaSharp.dll_1104335373" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_753413677" />
+      <ComponentRef Id="Component.AutoUpdater.NET.resources.dll_3901653914" />
+      <ComponentRef Id="Component.CMT.bcd_3649578820" />
+      <ComponentRef Id="Component.ERS.bcd_3983650543" />
+      <ComponentRef Id="Component.EWG.bcd_1509882878" />
+      <ComponentRef Id="Component.Fortrac.bcd_3721921886" />
+      <ComponentRef Id="Component.GeoStar.bcd_1692999774" />
+      <ComponentRef Id="Component.GRIDMAXX20Solutions.bcd_4188939865" />
+      <ComponentRef Id="Component.HTG.bcd_1362101241" />
+      <ComponentRef Id="Component.KPNE.bcd_337530587" />
+      <ComponentRef Id="Component.Mirafi.bcd_1326158436" />
+      <ComponentRef Id="Component.SRW.bcd_1800646383" />
+      <ComponentRef Id="Component.Stratagrid.bcd_3127661333" />
+      <ComponentRef Id="Component.StratagridSGU.bcd_3743984310" />
+      <ComponentRef Id="Component.Synteen.bcd_2971221606" />
+      <ComponentRef Id="Component.TechGrid.bcd_3722855085" />
+      <ComponentRef Id="Component.Tensar.bcd_3241609363" />
+      <ComponentRef Id="Component.Versa2dGrid.bcd_1736201397" />
+      <ComponentRef Id="Component.CornerStone_4.0.bsd_1211399485" />
+      <ComponentRef Id="Component.Fortus_4.0.bsd_2111973084" />
+      <ComponentRef Id="Component.MagnumStone20All_4.0.bcd_311296333" />
+      <ComponentRef Id="Component.MagnumStone20All_4.0.bsd_1023757053" />
+      <ComponentRef Id="Component.KeyStone204.0.bcd_1496985412" />
+      <ComponentRef Id="Component.KeyStone204.0.bcdXX_316391006" />
+      <ComponentRef Id="Component.Regal20Stone20Pro.bcd_3971030248" />
+      <ComponentRef Id="Component.Anchor20Diamond204.0.bcd_1847677069" />
+      <ComponentRef Id="Component.Anchor20Diamond20Pro20PS_4.0.bcd_2464743509" />
+      <ComponentRef Id="Component.Anchor20Diamond20Pro_4.0.bcd_1963326646" />
+      <ComponentRef Id="Component.Anchor20GeoHold20Pro204.0.bcd_3550024555" />
+      <ComponentRef Id="Component.Anchor20Stirling2040.bcd_1352372439" />
+      <ComponentRef Id="Component.REAWall.ini_2316114435" />
+      <ComponentRef Id="Component.VertiBlock204.0.bvd_2556050556" />
+      <ComponentRef Id="Component.Baskets.bcd_2387950421" />
+      <ComponentRef Id="Component.Baskets12_40.bcd_3337963036" />
+      <ComponentRef Id="Component.Baskets18_40.bcd_3740223004" />
+      <ComponentRef Id="Component.Baskets24_40.bcd_3472055079" />
+      <ComponentRef Id="Component.Baskets.bcd_1337778614" />
+      <ComponentRef Id="Component.BasketsXX.bcd_4085008256" />
+      <ComponentRef Id="Component.Baskets_4.0.bcd_3637795341" />
+      <ComponentRef Id="Component.ReCon204.0.brd_1819846375" />
+      <ComponentRef Id="Component.ProgramMenuFolder.EmptyDirectory" />
       <ComponentRef Id="Component.DesktopFolder.EmptyDirectory" />
-      <ComponentRef Id="UltraBlock2c20Inc" />
+      <ComponentRef Id="Race20Engineering20Associates" />
       <ComponentRef Id="TARGETDIR" />
+      <ComponentRef Id="REA20Wall" />
       <ComponentRef Id="Data20Files" />
     </Feature>
 

@@ -54,24 +54,24 @@ namespace Script
     {
         public static void Main(string[] args)
         {
-            const string version = "26.1.9";
+            const string version = "26.1.32";
 
             var project =
 #if REAssoc
                     new Project("REA Analysis",
                     new Dir(@"%ProgramFiles%\Race Engineering Associates\REA Analysis",
-                    new File(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\REA_Analysis.exe",
+                    new File(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\REA_Analysis.exe",
                         new FileShortcut("REA Analysis", "INSTALLDIR"),
                         new FileShortcut("REA Analysis", "%ProgramMenu%")
                         {
                             IconFile =
-                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc.ico",
+                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc1.ico",
                             WorkingDirectory = "%Temp%"
                         },
                         new FileShortcut("REA Analysis", @"%Desktop%")
                         {
                             IconFile =
-                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc.ico"
+                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc1.ico"
                         }),
                         new ExeFileShortcut("Uninstall REA Analysis", "[System64Folder]msiexec.exe", "/x [ProductCode]")
                         {
@@ -105,11 +105,11 @@ namespace Script
 #elif UltraBlock
             new Project("UltraWall",
                     new Dir(@"%ProgramFiles%\UltraBlock, Inc\UltraWall",
-                    new File(@"E:\Programs\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\UltraWall_Secure\UltraWall.exe",
+                    new File(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\UltraWall.exe",
                     new FileShortcut("UltraWall", "INSTALLDIR"), //INSTALLDIR is the ID of "%ProgramFiles%\My Company\My Product" 
                     new FileShortcut("UltraWall", @"%Desktop%")
                     {
-                        IconFile = @"E:\Programs\REA-Analysis-and-Layout (2025)\REA_Analysis\Images\Ultrablock.ico",
+                        IconFile = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\Ultrablock.ico",
                         WorkingDirectory = "%Temp%"
                     }),
                     new ExeFileShortcut("Uninstall UltraWall", "[System64Folder]msiexec.exe", "/x [ProductCode]")
@@ -131,7 +131,8 @@ namespace Script
 #endif
 
             #region ProgramDLLs
-                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\*.dll")
+                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\*.dll"),
+                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\*.config")
             #endregion
                     ),
 
@@ -140,31 +141,31 @@ namespace Script
 #if REAssoc
                     new Dir(@"%PersonalFolder%\REA Wall\Data Files",
                         new Dir(@"Reinforcing",
-                            new DirFiles(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\*.*")
+                            new DirFiles(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\*.*")
                             ),
                         new Dir(@"CornerStone 4.0",
-                            new DirFiles(@"D:\OneDrive - rea-llc.com\REA Data Files\CornerStone 4.0\*.*")
+                            new DirFiles(@"E:\OneDrive - rea-llc.com\REA Data Files\CornerStone 4.0\*.*")
                             ),
                         new Dir(@"MagnumStone 4.0",
-                            new DirFiles(@"D:\OneDrive - rea-llc.com\REA Data Files\MagnumStone 4.0\*.*")
+                            new DirFiles(@"E:\OneDrive - rea-llc.com\REA Data Files\MagnumStone 4.0\*.*")
                             ),
                         new Dir(@"KeyStone 4.0",
-                            new DirFiles(@"D:\OneDrive - rea-llc.com\REA Data Files\KeyStone 4.0\*.*")
+                            new DirFiles(@"E:\OneDrive - rea-llc.com\REA Data Files\KeyStone 4.0\*.*")
                             ),
                         new Dir(@"Anchor 4.0",
-                            new DirFiles(@"D:\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\*.*")
+                            new DirFiles(@"E:\OneDrive - rea-llc.com\REA Data Files\Anchor 4.0\*.*")
                             ),
 
                         new Dir(@"VertiBlock 4.0",
-                            new DirFiles(@"D:\OneDrive - rea-llc.com\REA Data Files\VertiBlock 4.0\*.*")
+                            new DirFiles(@"E:\OneDrive - rea-llc.com\REA Data Files\VertiBlock 4.0\*.*")
                             ),
 
                          new Dir(@"Baskets",
-                            new Files(@"D:\OneDrive - rea-llc.com\REA Data Files\Baskets\*.bcd")
+                            new Files(@"E:\OneDrive - rea-llc.com\REA Data Files\Baskets\*.bcd")
                             ),
 
                         new Dir(@"ReCon 4.0",
-                            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon 4.0\ReCon 4.0.brd")
+                            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon 4.0\ReCon 4.0.brd")
                             )
                         )
                     //if no blocks specified
@@ -181,11 +182,11 @@ namespace Script
 #if ReConBlk
 						//data directory
 						new Dir(@"ReCon",
-								new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon SetBack.brd"),
-								new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon.brd")
+								new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon SetBack.brd"),
+								new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon.brd")
 						),
                         new Dir(@"ReCon 4.0",
-                            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon 4.0\ReCon 4.0.brd")
+                            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon 4.0\ReCon 4.0.brd")
 #endif
 
 #if LondonBldr
@@ -198,31 +199,31 @@ namespace Script
 #elif ReCon
             //data directory
             new Dir(@"%PersonalFolder%\ReCon Wall",
-                new File(@"D:\OneDrive - rea-llc.com\ReCon Retaining Walls\Software\Acknowledgement Acceptance of Terms of Usage and Disclaimer.rtf"),
+                new File(@"E:\OneDrive - rea-llc.com\ReCon Retaining Walls\Software\Acknowledgement Acceptance of Terms of Usage and Disclaimer.rtf"),
 
             new Dir(@"Data Files",
                 new Dir("ReCon",
-            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon SetBack.brd"),
-            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon.brd"),
-            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon R Lipped.brd")),
+            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon SetBack.brd"),
+            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon.brd"),
+            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon\ReCon R Lipped.brd")),
 
             new Dir(@"ReCon 4.0",
-                new File(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon 4.0\ReCon 4.0.brd")),
+                new File(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon 4.0\ReCon 4.0.brd")),
 
             new Dir("Reinforcing",
-            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Mirafi.bcd"),
-            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Stratagrid.bcd"),
-            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\StratagridSGU.bcd"),
-            new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Synteen.bcd"))),
+            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Mirafi.bcd"),
+            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Stratagrid.bcd"),
+            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\StratagridSGU.bcd"),
+            new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Synteen.bcd"))),
 
             //Personal Directory
             new Dir(@"PDF Files",
-            new DirFiles(@"D:\OneDrive - rea-llc.com\REA Data Files\ReCon\PDF Files\*.*"))
+            new DirFiles(@"E:\OneDrive - rea-llc.com\REA Data Files\ReCon\PDF Files\*.*"))
             )
 
 #if NotUsedCommonAppDataFolder
                     new Dir(@"CommonAppDataFolder\ReCon Wall\Data Files",
-                new File(@"D:\OneDrive - rea-llc.com\ReCon Retaining Walls\Software\Acknowledgement Acceptance of Terms of Usage and Disclaimer.rtf"),
+                new File(@"E:\OneDrive - rea-llc.com\ReCon Retaining Walls\Software\Acknowledgement Acceptance of Terms of Usage and Disclaimer.rtf"),
 
                 new Dir("ReCon",
                     new File(@"C:\Users\Public\REAWall\REA Data Files\ReCon\ReCon Channel Block.brd"),
@@ -250,34 +251,34 @@ namespace Script
             //data directory
             //Personal Directory
             new Dir(@"%PersonalFolder%\UltraWall Files",
-                new File(@"D:\OneDrive - rea-llc.com\ULTRABLOCK, INC\Acknowledgement and Acceptance of Terms of Usage and Disclaimer.rtf"),
+                new File(@"E:\OneDrive - rea-llc.com\ULTRABLOCK, INC\Acknowledgement and Acceptance of Terms of Usage and Disclaimer.rtf"),
 
                 new Dir(@"Data Files",
                     new Dir("UltraBlock",
-                    new File(@"D:\OneDrive - rea-llc.com\REA Data Files\UltraBlock\UltraBlock.bud")
+                    new File(@"E:\OneDrive - rea-llc.com\REA Data Files\UltraBlock\UltraBlock.bud")
                     ),
 
                 new Dir("StoneTerra",
-                    new File(@"D:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra.bud"),
-                    new File(@"D:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra_EX.bud"),
-                    new File(@"D:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra_UC.bud")
+                    new File(@"E:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra.bud"),
+                    new File(@"E:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra_EX.bud"),
+                    new File(@"E:\OneDrive - rea-llc.com\REA Data Files\StoneTerra\StoneTerra_UC.bud")
                     ),
 
                 new Dir("Reinforcing",
-                new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Mirafi.bcd"),
-                new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Stratagrid.bcd"),
-                new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Synteen.bcd")
+                new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Mirafi.bcd"),
+                new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Stratagrid.bcd"),
+                new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\Synteen.bcd")
                 )
                 )
             )
 #elif Envirolok
             new Dir(@"%PersonalFolder%\REA Wall\Data Files",
             new Dir("Reinforcing",
-            new Files(@"D:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\*.*")
+            new Files(@"E:\OneDrive - rea-llc.com\REA Data Files\Reinforcing\*.*")
                 ),
 
             new Dir("Envirolok",
-                new File(@"D:\OneDrive - rea-llc.com\REA Data Files\Envirolok\Envirolok.bed"))
+                new File(@"E:\OneDrive - rea-llc.com\REA Data Files\Envirolok\Envirolok.bed"))
             )
 #endif
 
@@ -296,26 +297,26 @@ namespace Script
 #else
                         OutFileName = "setup_REA_Analysis_" + version.Replace("26.", "2026."),
 #endif
-                        LicenceFile = @"D:\OneDrive - rea-llc.com\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",
+                        LicenceFile = @"E:\OneDrive - rea-llc.com\Shared with Everyone\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",
 
 #elif CDP
                     GUID = new Guid("8cfd3c5d-c4e3-4cb5-8846-1a1bdc7ebbbb"),
 						OutFileName = "setup CDP Wall " + version + " " + versionDate,
-						LicenceFile = @"D:\OneDrive - rea-llc.com\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",                    
+						LicenceFile = @"E:\OneDrive - rea-llc.com\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",                    
 
 #elif ReCon
                         GUID = new Guid("320e5f9e-ba56-42c5-a267-705b60b20132"),
                         OutFileName = "setup ReCon Wall" + version + " " + versionDate,
-                        LicenceFile = @"D:\OneDrive - rea-llc.com\ReCon Retaining Walls\Software\Acknowledgement Acceptance of Terms of Usage and Disclaimer.rtf",
+                        LicenceFile = @"E:\OneDrive - rea-llc.com\ReCon Retaining Walls\Software\Acknowledgement Acceptance of Terms of Usage and Disclaimer.rtf",
 #elif BigBlock
             GUID = new Guid("6614175a-ee49-47d6-91fc-8c1269825c73"),
             OutFileName = "setup BigBlock Analysis" + version + " " + versionDate,
-            LicenceFile = @"D:\OneDrive - rea-llc.com\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",
+            LicenceFile = @"E:\OneDrive - rea-llc.com\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",
 #elif UltraBlock
                 GUID = new Guid("b1b0561a-3117-421c-82a2-0b9240884bdc"),
-                OutFileName = "setup UltraWall SWZ" + version + " " + versionDate,
-                //LicenceFile = @"D:\OneDrive - rea - llc.com\Software\REAWall 4.0 Disclaimer(Jan 2015).rtf",
-                LicenceFile = @"D:\OneDrive - rea-llc.com\ULTRABLOCK, INC\Acknowledgement and Acceptance of Terms of Usage and Disclaimer.rtf",
+                OutFileName = "setup_UltraWall_" + version,
+                //LicenceFile = @"E:\OneDrive - rea - llc.com\Software\REAWall 4.0 Disclaimer(Jan 2015).rtf",
+                LicenceFile = @"E:\OneDrive - rea-llc.com\ULTRABLOCK, INC\Acknowledgement and Acceptance of Terms of Usage and Disclaimer.rtf",
 #elif CornerStone
             project.GUID = new Guid("3b9570bf-73ec-46e9-b47f-8877ec37bfda");
             project.OutFileName = "setup CornerStone Analysis" + version + " " + version_date;
@@ -323,7 +324,7 @@ namespace Script
 #elif Envirolok
             GUID = new Guid("3b9570bf-73ec-46e9-b47f-8877ec37bfda"),
             OutFileName = "setup Envirolok Analysis" + version + " " + versionDate,
-            LicenceFile = @"D:\OneDrive - rea-llc.com\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",
+            LicenceFile = @"E:\OneDrive - rea-llc.com\Software\REAWall 4.0 Disclaimer (Jan 2015).rtf",
 #elif EarthWallProducts
             GUID = new Guid("0b74a7fc-bc12-4100-b035-27370c35a15c"),
             OutFileName = "setup Earth Wall Products Analysis" + version + " " + versionDate,

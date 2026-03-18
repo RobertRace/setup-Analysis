@@ -1,67 +1,60 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
-    <PropertyGroup>
-        <WixSharpBuild>false</WixSharpBuild>
-        <WixSharpSkipCompiler>true</WixSharpSkipCompiler>
-    </PropertyGroup>
-    
+  <PropertyGroup>
+    <WixSharpBuild>false</WixSharpBuild>
+    <WixSharpSkipCompiler>true</WixSharpSkipCompiler>
+  </PropertyGroup>
     <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
             Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{62731FF7-7D90-4F4B-8051-E857A3F8F825}</ProjectGuid>
-        <OutputType>Exe</OutputType>
-        <RootNamespace>Script</RootNamespace>
-        <AssemblyName>Setup</AssemblyName>
-        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-        <FileAlignment>512</FileAlignment>
-        <AssemblyVersion>1.0.17009</AssemblyVersion>
-
-        <!-- ClickOnce settings (ignored by WixSharp but harmless) -->
-        <PublishUrl>publish\</PublishUrl>
-        <Install>true</Install>
-        <InstallFrom>Disk</InstallFrom>
-        <UpdateEnabled>false</UpdateEnabled>
-        <UpdateMode>Foreground</UpdateMode>
-        <UpdateInterval>7</UpdateInterval>
-        <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-        <UpdatePeriodically>false</UpdatePeriodically>
-        <UpdateRequired>false</UpdateRequired>
-        <MapFileExtensions>true</MapFileExtensions>
-        <ApplicationRevision>0</ApplicationRevision>
-        <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-        <IsWebBootstrapper>false</IsWebBootstrapper>
-        <UseApplicationTrust>false</UseApplicationTrust>
-        <BootstrapperEnabled>true</BootstrapperEnabled>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
-        <DefineConstants>TRACE;SoftworkzX</DefineConstants>
-        <WarningLevel>4</WarningLevel>
-        <Prefer32Bit>true</Prefer32Bit>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugType>pdbonly</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Release\</OutputPath>
-        <WarningLevel>4</WarningLevel>
-        <Prefer32Bit>false</Prefer32Bit>
-    </PropertyGroup>
-
-    <!-- Your WiX path (optional, but harmless) -->
-    <PropertyGroup>
-        <WixBinPackage>C:\Program Files (x86)\WiX Toolset v3.14\bin</WixBinPackage>
-    </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62731FF7-7D90-4F4B-8051-E857A3F8F825}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Script</RootNamespace>
+    <AssemblyName>Setup</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AssemblyVersion>1.0.17009</AssemblyVersion>
+    <!-- ClickOnce settings (ignored by WixSharp but harmless) -->
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;SoftworkzX</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <!-- Your WiX path (optional, but harmless) -->
+  <PropertyGroup>
+    <WixBinPackage>C:\Program Files (x86)\WiX Toolset v3.14\bin</WixBinPackage>
+  </PropertyGroup>
 
     <ItemGroup>
         <Reference Include="Microsoft.Deployment.WindowsInstaller">
@@ -76,33 +69,27 @@
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
     </ItemGroup>
-
-    <ItemGroup>
+  <ItemGroup>
         <Compile Include="setup.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <None Include="wix\$(ProjectName).g.wxs" />
     </ItemGroup>
-
     <ItemGroup>
-        <PackageReference Include="WixSharp">
-            <Version>1.26.0</Version>
-        </PackageReference>
-    </ItemGroup>
-
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
-    <!-- Your pre-build logic -->
-    <PropertyGroup>
-        <PreBuildEvent>
+    <PackageReference Include="WixSharp">
+      <Version>1.26.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Your pre-build logic -->
+  <PropertyGroup>
+    <PreBuildEvent>
             if exist "$(TargetPath).locked" del "$(TargetPath).locked"
             if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"
         </PreBuildEvent>
-    </PropertyGroup>
-
-    <!-- ⭐ CRITICAL FIX ⭐ -->
-    <!-- This MUST be at the bottom so it overrides WixSharp.targets -->
-    <PropertyGroup>
-        <WixSharpBuild>false</WixSharpBuild>
-    </PropertyGroup>
-
+  </PropertyGroup>
+  <!-- ⭐ CRITICAL FIX ⭐ -->
+  <!-- This MUST be at the bottom so it overrides WixSharp.targets -->
+  <PropertyGroup>
+    <WixSharpBuild>false</WixSharpBuild>
+  </PropertyGroup>
 </Project>
