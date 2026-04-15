@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <WixSharpBuild>false</WixSharpBuild>
     <WixSharpSkipCompiler>true</WixSharpSkipCompiler>
   </PropertyGroup>
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
-            Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{62731FF7-7D90-4F4B-8051-E857A3F8F825}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Script</RootNamespace>
     <AssemblyName>Setup</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AssemblyVersion>1.0.17009</AssemblyVersion>
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
     <!-- ClickOnce settings (ignored by WixSharp but harmless) -->
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -55,29 +55,58 @@
   <PropertyGroup>
     <WixBinPackage>C:\Program Files (x86)\WiX Toolset v3.14\bin</WixBinPackage>
   </PropertyGroup>
-
-    <ItemGroup>
-        <Reference Include="Microsoft.Deployment.WindowsInstaller">
-            <HintPath>..\..\..\OneDrive - rea-llc.com\Documents\WixSharp Managed Setup\Wix_bin\bin\Microsoft.Deployment.WindowsInstaller.dll</HintPath>
-        </Reference>
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.Windows.Forms" />
-        <Reference Include="System.Xml.Linq" />
-        <Reference Include="System.Data.DataSetExtensions" />
-        <Reference Include="Microsoft.CSharp" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Xml" />
-    </ItemGroup>
   <ItemGroup>
-        <Compile Include="setup.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <None Include="wix\$(ProjectName).g.wxs" />
-    </ItemGroup>
-    <ItemGroup>
+    <Reference Include="Microsoft.Deployment.WindowsInstaller">
+      <HintPath>..\..\..\OneDrive - rea-llc.com\Documents\WixSharp Managed Setup\Wix_bin\bin\Microsoft.Deployment.WindowsInstaller.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Builders\DirectoryBuilder.cs" />
+    <Compile Include="Builders\ProjectBuilder.cs" />
+    <Compile Include="Builders\ShortcutBuilder.cs" />
+    <Compile Include="Configuration\Configurations\BigBlockConfiguration.cs" />
+    <Compile Include="Configuration\Configurations\EnvirolokConfiguration.cs" />
+    <Compile Include="Configuration\Configurations\REAAssocConfiguration.cs" />
+    <Compile Include="Configuration\Configurations\ReConConfiguration.cs" />
+    <Compile Include="Configuration\Configurations\UltraBlockConfiguration.cs" />
+    <Compile Include="Configuration\FilePathConfiguration.cs" />
+    <Compile Include="Configuration\ProductConfiguration.cs" />
+    <Compile Include="Constants\PathConstants.cs" />
+    <Compile Include="CustomActions\LaunchApplicationAction.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="wix\$(ProjectName).g.wxs" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="WixSharp">
       <Version>1.26.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- Your pre-build logic -->

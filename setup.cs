@@ -54,24 +54,24 @@ namespace Script
     {
         public static void Main(string[] args)
         {
-            const string version = "26.1.32";
+            const string version = "26.1.51";
 
             var project =
 #if REAssoc
                     new Project("REA Analysis",
                     new Dir(@"%ProgramFiles%\Race Engineering Associates\REA Analysis",
-                    new File(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\REA_Analysis.exe",
+                    new File(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\publish\REA_Analysis.exe",
                         new FileShortcut("REA Analysis", "INSTALLDIR"),
                         new FileShortcut("REA Analysis", "%ProgramMenu%")
                         {
                             IconFile =
-                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc1.ico",
+                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc.ico",
                             WorkingDirectory = "%Temp%"
                         },
                         new FileShortcut("REA Analysis", @"%Desktop%")
                         {
                             IconFile =
-                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc1.ico"
+                                @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\Images\REAssoc.ico"
                         }),
                         new ExeFileShortcut("Uninstall REA Analysis", "[System64Folder]msiexec.exe", "/x [ProductCode]")
                         {
@@ -131,8 +131,8 @@ namespace Script
 #endif
 
             #region ProgramDLLs
-                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\*.dll"),
-                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\*.config")
+                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\publish\*.dll"),
+                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\publish\*.config")
             #endregion
                     ),
 
@@ -283,11 +283,6 @@ namespace Script
 #endif
 
             #endregion
-                    //new ManagedAction(CustomActions.MyAction,
-                    //                  Return.ignore,
-                    //                  When.After,
-                    //                  Step.InstallFinalize,
-                    //                  Condition.NOT_Installed)
                     )
                     {
 #if REAssoc

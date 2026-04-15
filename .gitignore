@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# WixSharp generated files
+*.msi
+*.wxs
+*.wixpdb
+wix/
+
+# Old specific MSI file entry (now covered by *.msi above)
+# /setup_REA_Analysis_2026.1.33.msi
+/setup Envirolok Analysis26.1.51 2026-04-14.wxs
