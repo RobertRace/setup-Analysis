@@ -38,6 +38,7 @@ namespace Script.Builders
                 LicenceFile = _config.LicenseFilePath,
                 Version = Version.Parse(_config.Version),
                 UI = WUI.WixUI_InstallDir,
+                Platform = Platform.x64,
                 MajorUpgradeStrategy = MajorUpgradeStrategy.Default,
                 ControlPanelInfo =
                 {

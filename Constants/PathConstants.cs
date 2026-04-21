@@ -11,24 +11,24 @@ namespace Script.Constants
         public const string OneDriveBasePath = @"E:\OneDrive - rea-llc.com";
 
         // REA Analysis paths
-        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\Release\net48\publish\REA_Analysis.exe";
-        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\Release\net48\publish";
+        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\REA_Analysis.exe";
+        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48";
         public const string REAIconPath = ProgramsBasePath + @"\REA_Analysis\Images\REAssoc.ico";
 
         // ReCon paths
-        public const string ReConExePath = ProgramsBasePath2025 + @"\REA_Analysis\bin\Release\ReCon Wall_Secure\ReCon Wall.exe";
+        public const string ReConExePath = ProgramsBasePath2025 + @"\REA_Analysis\bin\x64\Release\net48\ReCon Wall.exe";
         public const string ReConIconPath = ProgramsBasePath2025 + @"\REA_Analysis\Images\ReCon.ico";
 
         // BigBlock paths
-        public const string BigBlockExePath = ProgramsBasePath2025 + @"\REA_Analysis\bin\Release\BigBlock Analysis_Secure\BigBlock Analysis.exe";
+        public const string BigBlockExePath = ProgramsBasePath2025 + @"\REA_Analysis\bin\x64\Release\net48\BigBlock Analysis.exe";
         public const string BigBlockIconPath = ProgramsBasePath2025 + @"\REA_Analysis\Images\BigBlock.ico";
 
         // UltraBlock paths
-        public const string UltraBlockExePath = ProgramsBasePath + @"\REA_Analysis\bin\Release\net48\UltraWall.exe";
+        public const string UltraBlockExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\UltraWall.exe";
         public const string UltraBlockIconPath = ProgramsBasePath + @"\REA_Analysis\Images\Ultrablock.ico";
 
         // Envirolok paths
-        public const string EnvirolokExePath = ProgramsBasePath + @"\REA_Analysis\bin\ReleaseEnvirolok\net48\Envirolok_Analysis.exe";
+        public const string EnvirolokExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\Envirolok_Analysis.exe";
         public const string EnvirolokIconPath = ProgramsBasePath + @"\REA_Analysis\Images\Envirolok.ico";
 
         // Data file base paths

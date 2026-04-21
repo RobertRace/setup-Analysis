@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,11 +16,13 @@ namespace Script
 {
     public partial class MainWindow : Window
     {
+        private const string ReaWallIniPath = @"E:\OneDrive - rea-llc.com\Documents\REA Wall\REAWall.ini";
         private string _lastBuiltMsiPath = string.Empty;
 
         public MainWindow()
         {
             InitializeComponent();
+            LoadLastBuildSettings();
         }
 
         private async void BuildButton_Click(object sender, RoutedEventArgs e)
@@ -67,6 +70,8 @@ namespace Script
 
             ProductConfiguration config;
             List<WixEntity> dataDirectories;
+
+            SaveLastBuildSettings(version, versionDate, selectedProduct, useSoftworkzDNA);
 
             // Select the appropriate configuration based on the product type
             switch (selectedProduct)
@@ -116,6 +121,19 @@ namespace Script
             // Determine DLL source path based on product
             string dllSourcePath = GetDllSourcePath(selectedProduct, useSoftworkzDNA);
             AppendOutput($"DLL Source Path: {dllSourcePath}\n");
+
+            // Validate x64 input paths before building
+            if (!System.IO.File.Exists(config.ExecutablePath))
+            {
+                throw new FileNotFoundException("Executable not found. Build/publish the app first.", config.ExecutablePath);
+            }
+
+            if (!Directory.Exists(dllSourcePath))
+            {
+                throw new DirectoryNotFoundException("DLL source folder not found: " + dllSourcePath);
+            }
+
+            EnsureBinaryIsX64(config.ExecutablePath, selectedProduct + " executable");
 
             // Create program files
             AppendOutput("Creating program files...");
@@ -170,9 +188,9 @@ namespace Script
         private string GetDllSourcePath(string productType, bool useSoftworkzDNA)
         {
             // Base paths
-            string basePath2024 = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\publish";
-            string basePath2025 = @"E:\Programs\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\Release\net48\publish";
-            string envirolokPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\ReleaseEnvirolok\net48";
+            string basePath2024 = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net48";
+            string basePath2025 = @"E:\Programs\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\x64\Release\net48";
+            string envirolokPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net48";
 
             // If SoftworkzDNA is enabled, you might want to use different paths
             // For now, using the same logic as original but can be customized
@@ -191,6 +209,107 @@ namespace Script
 
                 default:
                     return basePath2024;
+            }
+        }
+
+        private static void EnsureBinaryIsX64(string filePath, string description)
+        {
+            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var reader = new BinaryReader(stream))
+            {
+                stream.Seek(0x3C, SeekOrigin.Begin);
+                int peHeaderOffset = reader.ReadInt32();
+                stream.Seek(peHeaderOffset + 4, SeekOrigin.Begin);
+                ushort machine = reader.ReadUInt16();
+
+                // IMAGE_FILE_MACHINE_AMD64 = 0x8664
+                if (machine != 0x8664)
+                {
+                    throw new InvalidOperationException($"{description} is not x64. Found machine type 0x{machine:X4} at: {filePath}");
+                }
+            }
+        }
+
+        private void LoadLastBuildSettings()
+        {
+            try
+            {
+                if (!System.IO.File.Exists(ReaWallIniPath))
+                {
+                    return;
+                }
+
+                var values = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+                foreach (var line in System.IO.File.ReadAllLines(ReaWallIniPath))
+                {
+                    var trimmed = line.Trim();
+                    if (string.IsNullOrWhiteSpace(trimmed) || trimmed.StartsWith(";") || !trimmed.Contains("="))
+                    {
+                        continue;
+                    }
+
+                    int idx = trimmed.IndexOf('=');
+                    var key = trimmed.Substring(0, idx).Trim();
+                    var value = trimmed.Substring(idx + 1).Trim();
+                    values[key] = value;
+                }
+
+                if (values.TryGetValue("Version", out var version) && !string.IsNullOrWhiteSpace(version))
+                {
+                    VersionTextBox.Text = version;
+                }
+
+                if (values.TryGetValue("VersionDate", out var versionDate) && !string.IsNullOrWhiteSpace(versionDate))
+                {
+                    VersionDateTextBox.Text = versionDate;
+                }
+
+                if (values.TryGetValue("Product", out var product) && !string.IsNullOrWhiteSpace(product))
+                {
+                    foreach (ComboBoxItem item in ProductComboBox.Items)
+                    {
+                        if (string.Equals(item.Content?.ToString(), product, StringComparison.OrdinalIgnoreCase))
+                        {
+                            ProductComboBox.SelectedItem = item;
+                            break;
+                        }
+                    }
+                }
+
+                if (values.TryGetValue("SoftworkzDNA", out var softworkzDna) && bool.TryParse(softworkzDna, out var isChecked))
+                {
+                    SoftworkzDNACheckBox.IsChecked = isChecked;
+                }
+            }
+            catch
+            {
+                // Ignore persistence errors to keep UI usable.
+            }
+        }
+
+        private void SaveLastBuildSettings(string version, string versionDate, string product, bool softworkzDna)
+        {
+            try
+            {
+                var directory = Path.GetDirectoryName(ReaWallIniPath);
+                if (!string.IsNullOrWhiteSpace(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                var content = new StringBuilder()
+                    .AppendLine("[REAWall]")
+                    .AppendLine("Version=" + version)
+                    .AppendLine("VersionDate=" + versionDate)
+                    .AppendLine("Product=" + product)
+                    .AppendLine("SoftworkzDNA=" + softworkzDna)
+                    .ToString();
+
+                System.IO.File.WriteAllText(ReaWallIniPath, content);
+            }
+            catch
+            {
+                // Ignore persistence errors to keep build flow working.
             }
         }
 
