@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -17,12 +18,20 @@ namespace Script
     public partial class MainWindow : Window
     {
         private const string ReaWallIniPath = @"E:\OneDrive - rea-llc.com\Documents\REA Wall\REAWall.ini";
+        private volatile bool _isClosing;
         private string _lastBuiltMsiPath = string.Empty;
 
         public MainWindow()
         {
             InitializeComponent();
+            Closing += MainWindow_Closing;
             LoadLastBuildSettings();
+        }
+
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            _isClosing = true;
+            Application.Current.Shutdown();
         }
 
         private async void BuildButton_Click(object sender, RoutedEventArgs e)
@@ -37,12 +46,18 @@ namespace Script
             }
             catch (Exception ex)
             {
-                AppendOutput($"\nERROR: {ex.Message}\n{ex.StackTrace}");
-                MessageBox.Show($"Build failed: {ex.Message}", "Build Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (!_isClosing && !Dispatcher.HasShutdownStarted && !Dispatcher.HasShutdownFinished)
+                {
+                    AppendOutput($"\nERROR: {ex.Message}\n{ex.StackTrace}");
+                    MessageBox.Show($"Build failed: {ex.Message}", "Build Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             finally
             {
-                BuildButton.IsEnabled = true;
+                if (!_isClosing && !Dispatcher.HasShutdownStarted && !Dispatcher.HasShutdownFinished)
+                {
+                    BuildButton.IsEnabled = true;
+                }
             }
         }
 
@@ -166,8 +181,18 @@ namespace Script
             AppendOutput($"✓ Output file: {msiFileName}");
             AppendOutput($"✓ Full path: {fullMsiPath}");
 
+            if (_isClosing || Dispatcher.HasShutdownStarted || Dispatcher.HasShutdownFinished)
+            {
+                return;
+            }
+
             Dispatcher.Invoke(() =>
             {
+                if (_isClosing || Dispatcher.HasShutdownStarted || Dispatcher.HasShutdownFinished)
+                {
+                    return;
+                }
+
                 var result = MessageBox.Show(
                     $"Installer built successfully!\n\n" +
                     $"Product: {config.ProductName}\n" +
@@ -315,8 +340,18 @@ namespace Script
 
         private void AppendOutput(string message)
         {
+            if (_isClosing || Dispatcher.HasShutdownStarted || Dispatcher.HasShutdownFinished)
+            {
+                return;
+            }
+
             Dispatcher.Invoke(() =>
             {
+                if (_isClosing || Dispatcher.HasShutdownStarted || Dispatcher.HasShutdownFinished)
+                {
+                    return;
+                }
+
                 OutputTextBox.AppendText(message + Environment.NewLine);
                 OutputTextBox.ScrollToEnd();
             });
