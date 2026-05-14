@@ -31,7 +31,6 @@ namespace Script
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             _isClosing = true;
-            Application.Current.Shutdown();
         }
 
         private async void BuildButton_Click(object sender, RoutedEventArgs e)
@@ -63,7 +62,8 @@ namespace Script
 
         private void BuildInstaller()
         {
-            string version = string.Empty;
+            string inputVersion = string.Empty;
+            string installerVersion = string.Empty;
             string versionDate = string.Empty;
             string selectedProduct = string.Empty;
             bool useSoftworkzDNA = false;
@@ -71,14 +71,23 @@ namespace Script
             // Get values from UI thread
             Dispatcher.Invoke(() =>
             {
-                version = VersionTextBox.Text;
+                inputVersion = VersionTextBox.Text?.Trim();
                 versionDate = VersionDateTextBox.Text;
                 selectedProduct = ((ComboBoxItem)ProductComboBox.SelectedItem).Content.ToString();
                 useSoftworkzDNA = SoftworkzDNACheckBox.IsChecked == true;
             });
 
+            installerVersion = NormalizeVersionForMsi(inputVersion, out bool versionWasNormalized);
+            ValidateMsiVersion(installerVersion);
+
             AppendOutput($"Building installer for: {selectedProduct}");
-            AppendOutput($"Version: {version}");
+            AppendOutput($"Entered Version: {inputVersion}");
+            AppendOutput($"MSI Version Used: {installerVersion}");
+            if (versionWasNormalized)
+            {
+                AppendOutput("Note: Converted year-style major version for MSI compatibility (major must be 0-255).");
+            }
+
             AppendOutput($"Version Date: {versionDate}");
             AppendOutput($"SoftworkzDNA: {useSoftworkzDNA}");
             AppendOutput("----------------------------------------\n");
@@ -86,41 +95,41 @@ namespace Script
             ProductConfiguration config;
             List<WixEntity> dataDirectories;
 
-            SaveLastBuildSettings(version, versionDate, selectedProduct, useSoftworkzDNA);
+            SaveLastBuildSettings(inputVersion, versionDate, selectedProduct, useSoftworkzDNA);
 
             // Select the appropriate configuration based on the product type
             switch (selectedProduct)
             {
                 case "REA Assoc":
-                    var reaConfig = new REAAssocConfiguration(version);
+                    var reaConfig = new REAAssocConfiguration(installerVersion);
                     config = reaConfig;
                     dataDirectories = reaConfig.CreateDataDirectories();
                     AppendOutput("Using REA Assoc configuration");
                     break;
 
                 case "ReCon":
-                    var reconConfig = new ReConConfiguration(version, versionDate);
+                    var reconConfig = new ReConConfiguration(installerVersion, versionDate);
                     config = reconConfig;
                     dataDirectories = reconConfig.CreateDataDirectories();
                     AppendOutput("Using ReCon configuration");
                     break;
 
                 case "BigBlock":
-                    var bigBlockConfig = new BigBlockConfiguration(version, versionDate);
+                    var bigBlockConfig = new BigBlockConfiguration(installerVersion, versionDate);
                     config = bigBlockConfig;
                     dataDirectories = bigBlockConfig.CreateDataDirectories();
                     AppendOutput("Using BigBlock configuration");
                     break;
 
                 case "UltraBlock":
-                    var ultraConfig = new UltraBlockConfiguration(version);
+                    var ultraConfig = new UltraBlockConfiguration(installerVersion);
                     config = ultraConfig;
                     dataDirectories = ultraConfig.CreateDataDirectories();
                     AppendOutput("Using UltraBlock configuration");
                     break;
 
                 case "Envirolok":
-                    var envirolokConfig = new EnvirolokConfiguration(version, versionDate);
+                    var envirolokConfig = new EnvirolokConfiguration(installerVersion, versionDate);
                     config = envirolokConfig;
                     dataDirectories = envirolokConfig.CreateDataDirectories();
                     AppendOutput("Using Envirolok configuration");
@@ -252,6 +261,50 @@ namespace Script
                 {
                     throw new InvalidOperationException($"{description} is not x64. Found machine type 0x{machine:X4} at: {filePath}");
                 }
+            }
+        }
+
+        private static string NormalizeVersionForMsi(string inputVersion, out bool wasNormalized)
+        {
+            wasNormalized = false;
+
+            if (string.IsNullOrWhiteSpace(inputVersion))
+            {
+                return inputVersion;
+            }
+
+            var trimmed = inputVersion.Trim();
+            var parts = trimmed.Split('.');
+            if (parts.Length != 4)
+            {
+                return trimmed;
+            }
+
+            if (int.TryParse(parts[0], out int major) && major > 255 && major >= 2000)
+            {
+                parts[0] = (major % 100).ToString();
+                wasNormalized = true;
+                return string.Join(".", parts);
+            }
+
+            return trimmed;
+        }
+
+        private static void ValidateMsiVersion(string version)
+        {
+            if (!Version.TryParse(version, out var parsed))
+            {
+                throw new ArgumentException("Version must be in format major.minor.build.revision (for example: 26.1.60.0).");
+            }
+
+            if (parsed.Major < 0 || parsed.Major > 255 || parsed.Minor < 0 || parsed.Minor > 255)
+            {
+                throw new ArgumentException("MSI version major and minor must be between 0 and 255.");
+            }
+
+            if (parsed.Build < 0 || parsed.Build > 65535 || parsed.Revision < 0 || parsed.Revision > 65535)
+            {
+                throw new ArgumentException("MSI version build and revision must be between 0 and 65535.");
             }
         }
 

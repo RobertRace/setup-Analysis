@@ -11,8 +11,8 @@ namespace Script.Constants
         public const string OneDriveBasePath = @"E:\OneDrive - rea-llc.com";
 
         // REA Analysis paths
-        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\publish\net48\REA_Analysis.exe";
-        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48";
+        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\publish\REA_Analysis.exe";
+        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\publish\";
         public const string REAIconPath = ProgramsBasePath + @"\REA_Analysis\Images\REAssoc.ico";
 
         // ReCon paths

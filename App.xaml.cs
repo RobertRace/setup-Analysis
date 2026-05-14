@@ -10,6 +10,7 @@ namespace Script
         {
             var app = new App();
             app.InitializeComponent();
+            app.ShutdownMode = ShutdownMode.OnMainWindowClose;
             app.Run();
         }
     }
