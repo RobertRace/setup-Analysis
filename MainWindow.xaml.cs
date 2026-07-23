@@ -222,7 +222,8 @@ namespace Script
         private string GetDllSourcePath(string productType, bool useSoftworkzDNA)
         {
             // Base paths
-            string basePath2024 = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net48";
+            string reaAssocPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net8.0-windows";
+            string ultraBlockPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net48";
             string basePath2025 = @"E:\Programs\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\x64\Release\net48";
             string envirolokPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net48";
 
@@ -231,8 +232,10 @@ namespace Script
             switch (productType)
             {
                 case "REA Assoc":
+                    return reaAssocPath;
+
                 case "UltraBlock":
-                    return basePath2024;
+                    return ultraBlockPath;
 
                 case "ReCon":
                 case "BigBlock":
@@ -242,7 +245,7 @@ namespace Script
                     return envirolokPath;
 
                 default:
-                    return basePath2024;
+                    return reaAssocPath;
             }
         }
 

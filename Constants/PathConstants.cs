@@ -11,9 +11,9 @@ namespace Script.Constants
         public const string OneDriveBasePath = @"E:\OneDrive - rea-llc.com";
 
         // REA Analysis paths
-        // Use the Release x64 build output for both EXE and DLLs to keep installer inputs consistent
-        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\REA_Analysis.exe";
-        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48";
+        //E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net8.0-windows\REA_Analysis.exe
+        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net8.0-windows\REA_Analysis.exe";
+        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net8.0-windows";
         public const string REAIconPath = ProgramsBasePath + @"\REA_Analysis\Images\REAssoc.ico";
 
         // ReCon paths

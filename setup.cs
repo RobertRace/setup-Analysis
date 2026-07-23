@@ -60,7 +60,7 @@ namespace Script
 #if REAssoc
                     new Project("REA Analysis",
                     new Dir(@"%ProgramFiles%\Race Engineering Associates\REA Analysis",
-                    new File(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\publish\REA_Analysis.exe",
+                    new File(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net8.0-windows\REA_Analysis.exe",
                         new FileShortcut("REA Analysis", "INSTALLDIR"),
                         new FileShortcut("REA Analysis", "%ProgramMenu%")
                         {
@@ -131,8 +131,8 @@ namespace Script
 #endif
 
             #region ProgramDLLs
-                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\publish\*.dll"),
-                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\Release\net48\publish\*.config")
+                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net8.0-windows\*.dll"),
+                        new Files(@"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net8.0-windows\*.config")
             #endregion
                     ),
 
@@ -351,26 +351,34 @@ public class CustomActions
     [CustomAction]
     public static ActionResult MyAction(Session session)
     {
+            // Only launch the installed application when an explicit MSI property is set.
+            // This prevents the installer from automatically re-opening the application when it is closed.
+            // To enable launching, set the LAUNCHAPP property to "1" (for example, via a checkbox on the UI).
+            var launchProp = session["LAUNCHAPP"] ?? string.Empty;
+            if (string.Equals(launchProp, "1", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(launchProp, "true", StringComparison.OrdinalIgnoreCase))
+            {
 #if REAssoc
 #if CDP
-		System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "CDP Wall.exe");
+                System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "CDP Wall.exe");
 #else
-        System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "REA Analysis.exe");
+                System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "REA Analysis.exe");
 #endif
 
 #elif ReCon
-        System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "ReCon Wall.exe");
+                System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "ReCon Wall.exe");
 
 #elif CornerStone
 #elif Envirolok
-            System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "Envirolok Analysis.exe");
+                System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "Envirolok Analysis.exe");
 #elif EarthWallProducts
-            System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "Earth Wall Product Analysis.exe");
+                System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "Earth Wall Product Analysis.exe");
 #elif BigBlock
-            System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "BigBlock Analysis.exe");
+                System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "BigBlock Analysis.exe");
 #elif UltraBlock
-        System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "UltraWall.exe");
+                System.Diagnostics.Process.Start(session["INSTALLDIR"] + "\\" + "UltraWall.exe");
 #endif
+            }
 
         return ActionResult.Success;
     }

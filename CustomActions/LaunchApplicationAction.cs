@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Deployment.WindowsInstaller;
 
 namespace Script.CustomActions
@@ -10,6 +11,13 @@ namespace Script.CustomActions
         [CustomAction]
         public static ActionResult LaunchApplication(Session session)
         {
+            var launchProp = session["LAUNCHAPP"] ?? string.Empty;
+            if (!string.Equals(launchProp, "1", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(launchProp, "true", StringComparison.OrdinalIgnoreCase))
+            {
+                return ActionResult.Success;
+            }
+
             var installDir = session["INSTALLDIR"];
             var executableName = session["EXECUTABLE_NAME"];
 

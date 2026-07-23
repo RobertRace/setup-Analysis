@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Script.Configuration;
 using WixSharp;
 
@@ -60,22 +61,84 @@ namespace Script.Builders
         {
             var entities = new List<WixEntity>();
 
+            var exeName = Path.GetFileName(exePath);
+            var shortcutWorkingDirectory = string.Equals(exeName, "ProgramDataUI.exe", StringComparison.OrdinalIgnoreCase)
+                ? "INSTALLDIR"
+                : "%Temp%";
+
             // Main executable with shortcuts
-            var exeFile = new File(exePath,
+            var exeFile = new WixSharp.File(exePath,
                 ShortcutBuilder.CreateInstallDirShortcut(shortcutName),
-                ShortcutBuilder.CreateProgramMenuShortcut(shortcutName, iconPath),
-                ShortcutBuilder.CreateDesktopShortcut(shortcutName, iconPath));
+                ShortcutBuilder.CreateProgramMenuShortcut(shortcutName, iconPath, shortcutWorkingDirectory),
+                ShortcutBuilder.CreateDesktopShortcut(shortcutName, iconPath, shortcutWorkingDirectory));
 
             entities.Add(exeFile);
 
             // Uninstall shortcut
             entities.Add(ShortcutBuilder.CreateUninstallShortcut(_config.ProductName));
 
-            // DLLs and config files
-            entities.Add(new Files(dllSourcePath + @"\*.dll"));
-            entities.Add(new Files(dllSourcePath + @"\*.config"));
+            // Include full .NET app payload (deps/runtimeconfig/resources/runtimes/etc.)
+            entities.AddRange(CreateRootFileEntities(dllSourcePath, exePath));
+            entities.AddRange(CreateSubdirectoryEntities(dllSourcePath));
 
             return entities;
+        }
+
+        private static List<WixEntity> CreateRootFileEntities(string sourceDirectory, string excludedExecutablePath)
+        {
+            var entities = new List<WixEntity>();
+            var excludedExecutableName = Path.GetFileName(excludedExecutablePath);
+
+            foreach (var filePath in Directory.GetFiles(sourceDirectory))
+            {
+                if (string.Equals(Path.GetFileName(filePath), excludedExecutableName, StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                if (string.Equals(Path.GetExtension(filePath), ".pdb", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                entities.Add(new WixSharp.File(filePath));
+            }
+
+            return entities;
+        }
+
+        private static List<WixEntity> CreateSubdirectoryEntities(string sourceDirectory)
+        {
+            var entities = new List<WixEntity>();
+
+            foreach (var directory in Directory.GetDirectories(sourceDirectory))
+            {
+                entities.Add(CreateDirectoryEntity(directory));
+            }
+
+            return entities;
+        }
+
+        private static Dir CreateDirectoryEntity(string sourceDirectory)
+        {
+            var children = new List<WixEntity>();
+
+            foreach (var filePath in Directory.GetFiles(sourceDirectory))
+            {
+                if (string.Equals(Path.GetExtension(filePath), ".pdb", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                children.Add(new WixSharp.File(filePath));
+            }
+
+            foreach (var directory in Directory.GetDirectories(sourceDirectory))
+            {
+                children.Add(CreateDirectoryEntity(directory));
+            }
+
+            return new Dir(Path.GetFileName(sourceDirectory), children.ToArray());
         }
     }
 }
