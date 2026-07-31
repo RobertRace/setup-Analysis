@@ -222,7 +222,7 @@ namespace Script
         private string GetDllSourcePath(string productType, bool useSoftworkzDNA)
         {
             // Base paths
-            string reaAssocPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net8.0-windows";
+            string reaAssocPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\publish";
             string ultraBlockPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net48";
             string basePath2025 = @"E:\Programs\REA-Analysis-and-Layout (2025)\REA_Analysis\bin\x64\Release\net48";
             string envirolokPath = @"E:\Programs\REA-Analysis-and-Layout\REA_Analysis\bin\x64\Release\net48";
