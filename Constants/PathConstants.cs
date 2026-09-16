@@ -11,8 +11,8 @@ namespace Script.Constants
         public const string OneDriveBasePath = @"E:\OneDrive - rea-llc.com";
 
         // REA Analysis paths
-        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\publish\REA_Analysis.exe";
-        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\publish";
+        public const string REAAnalysisExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net8.0-windows\REA_Analysis.exe";
+        public const string REAAnalysisDllPath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net8.0-windows";
         public const string REAIconPath = ProgramsBasePath + @"\REA_Analysis\Images\REAssoc.ico";
 
         // ReCon paths
@@ -24,8 +24,8 @@ namespace Script.Constants
         public const string BigBlockIconPath = ProgramsBasePath2025 + @"\REA_Analysis\Images\BigBlock.ico";
 
         // UltraBlock paths
-        public const string UltraBlockExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\UltraWall.exe";
-        public const string UltraBlockIconPath = ProgramsBasePath + @"\REA_Analysis\Images\Ultrablock.ico";
+        public const string UltraBlockExePath = ProgramsBasePath + @"\REA_Analysis\bin\ReleaseUltraBlock\net8.0-windows\UltraWall.exe";
+        public const string UltraBlockIconPath = ProgramsBasePath + @"\REA_Analysis\Images\UltraBlock.ico";
 
         // Envirolok paths
         public const string EnvirolokExePath = ProgramsBasePath + @"\REA_Analysis\bin\x64\Release\net48\Envirolok_Analysis.exe";

@@ -142,8 +142,8 @@ namespace Script
             // Build the project using the selected configuration
             var builder = new ProjectBuilder(config);
 
-            // Determine DLL source path based on product
-            string dllSourcePath = GetDllSourcePath(selectedProduct, useSoftworkzDNA);
+            // Determine DLL source path from executable folder to keep payload consistent
+            string dllSourcePath = Path.GetDirectoryName(config.ExecutablePath);
             AppendOutput($"DLL Source Path: {dllSourcePath}\n");
 
             // Validate x64 input paths before building

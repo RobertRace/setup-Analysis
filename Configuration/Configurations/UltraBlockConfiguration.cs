@@ -22,7 +22,7 @@ namespace Script.Configuration.Configurations
             Version = version;
             LicenseFilePath = PathConstants.UltraBlockDisclaimerPath;
             DataFolderPath = @"%PersonalFolder%\UltraWall Files";
-            OutputFileName = "setup_UltraWall_" + version;
+            OutputFileName = "setup_UltraWall." + version.Replace("26.", "2026.");
         }
 
         public List<WixEntity> CreateDataDirectories()
